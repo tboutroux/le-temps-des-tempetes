@@ -1,6 +1,7 @@
-import React from 'react'
-import { View, Text, StyleSheet, Pressable } from 'react-native'
+import React from 'react' // Permet d'utiliser React
+import { View, Text, StyleSheet, Pressable } from 'react-native' // Permet d'utiliser des composants React Native
 
+// On crée le composant CityRow qui permet d'afficher une ville
 const CityRow = ({ item, navigation, setSearchQuery }) => (
   <Pressable
     onPress={() => {
@@ -16,6 +17,7 @@ const CityRow = ({ item, navigation, setSearchQuery }) => (
   </Pressable>
 )
 
+// On crée le style du composant CityRow
 const styles = StyleSheet.create({
   row: {
     marginTop: 4,

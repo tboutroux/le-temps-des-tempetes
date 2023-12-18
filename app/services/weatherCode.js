@@ -1,3 +1,4 @@
+// L'objet weatherCode contient les codes météo de l'API OpenWeatherMap
 const weatherCode = {
   0: 'Soleil',
   1: 'Peu nuageux',
@@ -89,4 +90,5 @@ const weatherCode = {
   235: 'Averses de grêle',
 }
 
+// On exporte la constante
 export default weatherCode

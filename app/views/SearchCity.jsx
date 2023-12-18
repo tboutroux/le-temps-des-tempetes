@@ -1,19 +1,23 @@
-import * as React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import SearchBar from './components/SearchBar'
-import Api from '../models/Api'
-import { useEffect } from 'react'
-import CityPicker from './components/CityPicker'
+import * as React from 'react' // Permet d'utiliser React
+import { StyleSheet, Text, View } from 'react-native' // Permet d'utiliser des composants React Native
+import SearchBar from './components/SearchBar' // Permet d'utiliser le composant SearchBar
+import Api from '../models/Api'  // Permet d'utiliser la classe Api
+import { useEffect } from 'react' // Permet d'utiliser useEffect
+import CityPicker from './components/CityPicker' // Permet d'utiliser le composant CityPicker
 
+// On crée le composant App qui permet d'afficher l'application
 export default function App({ navigation }) {
+  // On initialise les variables d'état
   const [searchQuery, setSearchQuery] = React.useState('')
   const [valueResearch, setvalueResearch] = React.useState()
 
+  // On utilise useEffect pour mettre à jour la valeur de recherche
   const meteoAPI = new Api()
   useEffect(() => {
     fetchMeteo(searchQuery)
   }, [searchQuery])
 
+  // On utilise une fonction asynchrone pour récupérer les données de l'API
   const fetchMeteo = async (searchQuery) => {
     if (searchQuery.length >= 2) {
       const result = await meteoAPI.search(searchQuery)
@@ -23,6 +27,8 @@ export default function App({ navigation }) {
       setvalueResearch([])
     }
   }
+
+  // On retourne le JSX qui permet d'afficher l'application
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -46,20 +52,22 @@ export default function App({ navigation }) {
   )
 }
 
+// On crée le style du composant App
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: `#add8e6`,
+    backgroundColor: `#13131A`,
   },
   text: {
     margin: 20,
     marginBottom: 100,
-    fontSize: 20,
+    fontSize: 40,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
+    color: `#fff`,
   },
   headerContainer: {
     flex: 1,
